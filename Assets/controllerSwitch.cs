@@ -12,7 +12,7 @@ public class controllerSwitch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Robot")
+        if(other.CompareTag("Robot") || other.CompareTag("Block"))
         {
             this.GetComponent<SpriteRenderer>().sprite = pressed;
             switchPressed = true;

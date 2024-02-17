@@ -13,6 +13,7 @@ public class controller : MonoBehaviour
 
     public GameObject door;
     public Sprite openDoor;
+    public Sprite closeDoor;
 
     public bool levelComplete;
 
@@ -43,11 +44,16 @@ public class controller : MonoBehaviour
             {
                 controlRobot = false;
             }
+            
         }
 
         if (levelComplete)
         {
             door.GetComponent<SpriteRenderer>().sprite = openDoor;
+        }
+        else
+        {
+            door.GetComponent<SpriteRenderer>().sprite = closeDoor;
         }
         
     }

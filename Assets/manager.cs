@@ -13,26 +13,32 @@ public class manager : MonoBehaviour
 
     public void Start()
     {
+        switches = new List<GameObject>[1];
         switches[0] = new List<GameObject>(GameObject.FindGameObjectsWithTag("Switch"));
     }
+
     private void Update()
     {
+        levelComplete = true; // Assume level is complete initially
+
         for (int i = 0; i < switches[0].Count; i++)
         {
-            if (!switches[i][0].GetComponent<controllerSwitch>().switchPressed)
+            if (!switches[0][i].GetComponent<controllerSwitch>().switchPressed)
             {
                 levelComplete = false;
-                return;
-            }
-            else
-            {
-                levelComplete = true;
+                break; // Exit the loop early if a switch is not pressed
             }
         }
+
         if (levelComplete)
         {
             player.GetComponent<controller>().levelComplete = true;
         }
+        else
+        {
+            player.GetComponent<controller>().levelComplete = false;
+        }
     }
+
 
 }
