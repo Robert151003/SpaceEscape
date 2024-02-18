@@ -55,7 +55,7 @@ public class robotController : MonoBehaviour
             }
         }
     }
-        public void Update()
+    public void Update()
     {
         if (explosion)
         {

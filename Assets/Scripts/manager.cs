@@ -11,6 +11,8 @@ public class manager : MonoBehaviour
 
     public GameObject player;
 
+    public Animator fade; 
+
     public void Start()
     {
         switches = new List<GameObject>[1];

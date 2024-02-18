@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Robot
   - Switch
+  - Water
+  - Block
+  - door
   layers:
   - Default
   - TransparentFX
