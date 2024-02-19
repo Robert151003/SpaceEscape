@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class blockController : MonoBehaviour
@@ -7,6 +8,9 @@ public class blockController : MonoBehaviour
     public bool turnedOn;
     public GameObject attractor;
     public GameObject player;
+    public Animator buttonAnim;
+    public bool pressed;
+    public float timer;
 
     // Update is called once per frame
     void Update()
@@ -16,7 +20,10 @@ public class blockController : MonoBehaviour
             //instruction.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                turnedOn = !turnedOn; 
+                buttonAnim.SetTrigger("pressed");
+                turnedOn = !turnedOn;
+                
+                pressed = true;
             }
 
             if (turnedOn)

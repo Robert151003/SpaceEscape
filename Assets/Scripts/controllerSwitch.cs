@@ -10,7 +10,7 @@ public class controllerSwitch : MonoBehaviour
 
     public bool switchPressed;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if(other.CompareTag("Robot") || other.CompareTag("Block"))
         {
@@ -19,6 +19,7 @@ public class controllerSwitch : MonoBehaviour
 
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         this.GetComponent<SpriteRenderer>().sprite = unPressed;
