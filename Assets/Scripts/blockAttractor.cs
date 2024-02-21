@@ -7,6 +7,8 @@ public class blockAttractor : MonoBehaviour
     // Create a list to store game objects with the "block" tag
     private List<GameObject> blockList = new List<GameObject>();
 
+    public GameObject particleSystem;
+
     // Variable to check if the blocks should move
     private bool shouldMoveBlocks = false;
 
@@ -14,6 +16,7 @@ public class blockAttractor : MonoBehaviour
     {
         // Call a method to find and add objects with the "block" tag
         FindAndAddBlocks();
+        //particleSystem.Stop();
     }
 
     void Update()
@@ -63,6 +66,7 @@ public class blockAttractor : MonoBehaviour
     public void moveBlocks()
     {
         shouldMoveBlocks = true;
+        particleSystem.SetActive(true);
     }
 
     public void StopMovingBlocks()
@@ -70,5 +74,6 @@ public class blockAttractor : MonoBehaviour
         // You can add any additional logic here if needed
         // For now, we'll simply stop the movement by setting shouldMoveBlocks to false
         shouldMoveBlocks = false;
+        particleSystem.SetActive(false);
     }
 }

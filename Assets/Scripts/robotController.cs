@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,12 +10,16 @@ public class robotController : MonoBehaviour
     public Tilemap waterTilemap;
     public CameraShake cameraShake;
     public Animator animator;
+    public Rigidbody2D rb;
+    public AudioSource rolling;
+    public bool playingSound;
+    public AudioSource exploding;
     public bool explosion;
     public float timer;
 
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void GetTilesInTilemap()
@@ -57,6 +62,22 @@ public class robotController : MonoBehaviour
     }
     public void Update()
     {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            
+            if (!playingSound)
+            {
+                rolling.Play();
+                playingSound = true;
+                
+            }
+        }
+        if(Mathf.Abs(rb.velocity.magnitude) == 0)
+        {
+            rolling.Stop();
+            playingSound = false;
+        }
+
         if (explosion)
         {
             timer -= Time.deltaTime;   
@@ -72,8 +93,10 @@ public class robotController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the colliding object is the one you want to destroy
-        if (other.CompareTag("Water") || other.CompareTag("Robot"))
+        if (other.CompareTag("Water"))
         {
+            exploding.Play();
+            rolling.Stop();
             animator.SetBool("Explode", true);
             StartCoroutine(cameraShake.shake(0.5f, 0.3f));
             explosion = true;

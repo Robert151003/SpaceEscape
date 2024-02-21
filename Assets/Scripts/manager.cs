@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class manager : MonoBehaviour
@@ -11,7 +13,12 @@ public class manager : MonoBehaviour
 
     public GameObject player;
 
-    public Animator fade; 
+    public Animator fade;
+
+    public GameObject[] playerIcons;
+
+    public GameObject progressSaver;
+    public float timer;
 
     public void Start()
     {
@@ -25,7 +32,7 @@ public class manager : MonoBehaviour
 
         for (int i = 0; i < switches[0].Count; i++)
         {
-            if (!switches[0][i].GetComponent<controllerSwitch>().switchPressed)
+            if (!switches[0][i].GetComponent<controllerSwitch>().switchTurnedOn)
             {
                 levelComplete = false;
                 break; // Exit the loop early if a switch is not pressed
@@ -40,6 +47,24 @@ public class manager : MonoBehaviour
         {
             player.GetComponent<controller>().levelComplete = false;
         }
+
+        //remove - is for testing
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            progressSaver.GetComponent<progressSaver>().SavePlayer();
+            timer = 2f;
+        }
+    }
+
+    public void fadeIcons(GameObject icon)
+    {
+        icon.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+    }
+    public void unfadeIcons(GameObject icon)
+    {
+        icon.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+
     }
 
 

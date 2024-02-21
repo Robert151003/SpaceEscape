@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,9 +8,10 @@ public class controller : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     public GameObject controllingRobot;
+    public GameObject robotLights;
     public bool controlRobot;
 
     public GameObject door;
@@ -24,6 +26,13 @@ public class controller : MonoBehaviour
     public bool canMove;
 
     public Animator playerAnimator;
+
+    public AudioSource robotPowerDown;
+    public bool runningSound;
+    public AudioSource running;
+    
+
+    
 
     void Start()
     {
@@ -51,6 +60,7 @@ public class controller : MonoBehaviour
             if (canMove)
             {
                 rb = GetComponent<Rigidbody2D>();
+                moveSpeed = 5f;
                 MovePlayer(this.gameObject, movement);
             }
             else
@@ -61,6 +71,8 @@ public class controller : MonoBehaviour
         }
         else
         {
+
+
             if (Manager.GetComponent<UIController>().introLevel)
             {
                 Manager.GetComponent<UIController>().robotAnimator.SetBool("In", true);
@@ -69,11 +81,20 @@ public class controller : MonoBehaviour
 
 
             rb = controllingRobot.GetComponent<Rigidbody2D>();
+            moveSpeed = 8f;//2.5
             MovePlayer(controllingRobot, movement);
+
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                robotPowerDown.Play();
+                robotLights.SetActive(false);
                 controlRobot = false;
                 canMove = true;
+                for (int i = 0; i < Manager.GetComponent<manager>().playerIcons.Length; i++)
+                {
+                    Manager.GetComponent<manager>().fadeIcons(Manager.GetComponent<manager>().playerIcons[i]);
+                }
+                Manager.GetComponent<manager>().unfadeIcons(Manager.GetComponent<manager>().playerIcons[0]);
             }
 
         }
@@ -100,15 +121,17 @@ public class controller : MonoBehaviour
         }
         
     }
-
     void MovePlayer(GameObject controllingPlayer, Vector2 movement)
     {
         rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
         if (!controlRobot)
-        {           
+        {
+            
             playerAnimator.SetFloat("speed", Mathf.Abs(rb.velocity.magnitude));
             if (Mathf.Abs(rb.velocity.magnitude) == 0)
             {
+                running.Stop();
+                runningSound = false;
                 setBoolsFalse();
                 if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
                 {
@@ -125,6 +148,12 @@ public class controller : MonoBehaviour
             }
             else
             {
+                if (!runningSound)
+                {
+                    running.Play();
+                    runningSound = true;
+                }
+                
                 setBoolsFalse();
                 if (Input.GetKey(KeyCode.D))
                 {
@@ -145,7 +174,12 @@ public class controller : MonoBehaviour
                     playerAnimator.SetBool("runUp", true);
                 }
             }
-        }       
+        }
+        else
+        {
+            running.Stop();
+            runningSound = false;
+        }
     }
 
     void FlipPlayer(bool facingLeft)

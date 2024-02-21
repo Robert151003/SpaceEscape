@@ -9,18 +9,34 @@ public class blockController : MonoBehaviour
     public GameObject attractor;
     public GameObject player;
     public Animator buttonAnim;
+    public AudioSource click;
     public bool pressed;
     public float timer;
 
     // Update is called once per frame
     void Update()
     {
+        if (pressed)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                buttonAnim.SetTrigger("pressed");
+                timer = 0.5f;
+                pressed = false;
+            }
+
+        }
+
         if (Vector2.Distance(this.transform.position, player.transform.position) < 2)
         {
             //instruction.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                buttonAnim.SetTrigger("pressed");
+                click.Play();
+                
+                
+                
                 turnedOn = !turnedOn;
                 
                 pressed = true;
