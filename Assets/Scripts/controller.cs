@@ -6,33 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class controller : MonoBehaviour
 {
+    [Header("Game-Play")]
     public float moveSpeed = 5f;
-
-    public Rigidbody2D rb;
-
-    public GameObject controllingRobot;
-    public GameObject robotLights;
-    public bool controlRobot;
-
-    public GameObject door;
-    public Sprite openDoor;
-    public Sprite closeDoor;
-
-    public bool levelComplete;
-
-    public GameObject Manager;
-    private bool uiInstructions;
-
     public bool canMove;
-
+    public bool levelComplete;
+    public Rigidbody2D rb;
+    public GameObject Manager;
     public Animator playerAnimator;
 
-    public AudioSource robotPowerDown;
-    public bool runningSound;
-    public AudioSource running;
-    
+    [Header("Robot")]
+    public bool controlRobot;
+    public GameObject controllingRobot;
+    public GameObject robotLights;
 
-    
+    [Header("Door")]    
+    public Sprite openDoor;
+    public Sprite closeDoor;
+    public GameObject door;
+    public GameObject doorBlocker;
+
+    [Header("Audio")]
+    public AudioSource robotPowerDown;    
+    public AudioSource running;
+    public bool runningSound;
+
+
+
 
     void Start()
     {
@@ -46,14 +45,7 @@ public class controller : MonoBehaviour
         float verticalInput = Input.GetAxisRaw("Vertical");
 
         Vector2 movement = new Vector2(horizontalInput, verticalInput);
-
-        if (uiInstructions && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
-        {
-            uiInstructions = false;
-        }
-
         movement.Normalize();
-
         
         if (!controlRobot)
         {
@@ -66,72 +58,65 @@ public class controller : MonoBehaviour
             else
             {
                 rb.velocity = new Vector2(0, 0);
-            }
-            
+            }           
         }
         else
         {
-
-
             if (Manager.GetComponent<UIController>().introLevel)
             {
                 Manager.GetComponent<UIController>().robotAnimator.SetBool("In", true);
-                uiInstructions = true;
             }
 
-
             rb = controllingRobot.GetComponent<Rigidbody2D>();
-            moveSpeed = 8f;//2.5
+            moveSpeed = 8f;// 2.5 after testing
             MovePlayer(controllingRobot, movement);
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 robotPowerDown.Play();
+
                 robotLights.SetActive(false);
                 controlRobot = false;
                 canMove = true;
+
+                // Sets the player icon active
                 for (int i = 0; i < Manager.GetComponent<manager>().playerIcons.Length; i++)
                 {
                     Manager.GetComponent<manager>().fadeIcons(Manager.GetComponent<manager>().playerIcons[i]);
                 }
                 Manager.GetComponent<manager>().unfadeIcons(Manager.GetComponent<manager>().playerIcons[0]);
             }
-
         }
         
-        
-
         if (levelComplete)
         {
             door.GetComponent<SpriteRenderer>().sprite = openDoor;
-        }
-        else
-        {
-            door.GetComponent<SpriteRenderer>().sprite = closeDoor;
-        }
-
-        if (levelComplete)
-        {
+            doorBlocker.SetActive(false);
             if (Manager.GetComponent<UIController>().introLevel)
             {
                 Manager.GetComponent<UIController>().robotAnimator.SetBool("Out", true);
                 Manager.GetComponent<UIController>().endLevel.SetBool("In", true);
             }
-            
         }
-        
+        else
+        {
+            door.GetComponent<SpriteRenderer>().sprite = closeDoor;
+            doorBlocker.SetActive(true);
+        }        
     }
     void MovePlayer(GameObject controllingPlayer, Vector2 movement)
     {
         rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
+
         if (!controlRobot)
-        {
-            
+        {            
             playerAnimator.SetFloat("speed", Mathf.Abs(rb.velocity.magnitude));
             if (Mathf.Abs(rb.velocity.magnitude) == 0)
             {
                 running.Stop();
                 runningSound = false;
+
+                // Sets all animations false before assigning one
                 setBoolsFalse();
                 if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
                 {
@@ -153,7 +138,8 @@ public class controller : MonoBehaviour
                     running.Play();
                     runningSound = true;
                 }
-                
+
+                // Sets all animations false before assigning one
                 setBoolsFalse();
                 if (Input.GetKey(KeyCode.D))
                 {
@@ -204,7 +190,8 @@ public class controller : MonoBehaviour
         {
             canMove = false;
             Manager.GetComponent<manager>().fade.SetTrigger("fade");
-            Manager.GetComponent<progressSaver>().levels[SceneManager.GetActiveScene().buildIndex - 1] = true;
+            Manager.GetComponent<manager>().levels[SceneManager.GetActiveScene().buildIndex - 1] = true;
+            Manager.GetComponent<manager>().SavePlayer();
             StartCoroutine(changeLevel());
         }
     }

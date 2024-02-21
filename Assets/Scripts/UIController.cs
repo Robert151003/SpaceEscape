@@ -20,8 +20,6 @@ public class UIController : MonoBehaviour
             introLevel = true;
         }
     }
-
-
     void Update()
     {
         if (introLevel)
@@ -31,8 +29,6 @@ public class UIController : MonoBehaviour
                 keyAnimator.SetBool("Leave", true);
             }
         }
-        
-
     }
 
     public void Continue()

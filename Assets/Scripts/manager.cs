@@ -7,35 +7,38 @@ using UnityEngine.UI;
 [System.Serializable]
 public class manager : MonoBehaviour
 {
-    public List<GameObject>[] switches;
-
+    [Header("Game-Play")]
+    public GameObject player;
+    public List<GameObject>[] switches;    
     public bool levelComplete;
 
-    public GameObject player;
-
+    [Header("UI")]
     public Animator fade;
-
     public GameObject[] playerIcons;
 
+    [Header("Saving")]
     public GameObject progressSaver;
-    public float timer;
+    public bool[] levels;
 
     public void Start()
     {
         switches = new List<GameObject>[1];
         switches[0] = new List<GameObject>(GameObject.FindGameObjectsWithTag("Switch"));
+
+        LoadPlayer();
     }
 
     private void Update()
     {
-        levelComplete = true; // Assume level is complete initially
+        // Checking if all switches are active
+        levelComplete = true;
 
         for (int i = 0; i < switches[0].Count; i++)
         {
             if (!switches[0][i].GetComponent<controllerSwitch>().switchTurnedOn)
             {
                 levelComplete = false;
-                break; // Exit the loop early if a switch is not pressed
+                break;
             }
         }
 
@@ -47,16 +50,9 @@ public class manager : MonoBehaviour
         {
             player.GetComponent<controller>().levelComplete = false;
         }
-
-        //remove - is for testing
-        timer -= Time.deltaTime;
-        if(timer <= 0)
-        {
-            progressSaver.GetComponent<progressSaver>().SavePlayer();
-            timer = 2f;
-        }
     }
 
+    // UI Control
     public void fadeIcons(GameObject icon)
     {
         icon.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
@@ -67,5 +63,24 @@ public class manager : MonoBehaviour
 
     }
 
+    // Save System
+    public void SavePlayer()
+    {
+        progressSaver.GetComponent<progressSaver>().level1 = levels[0];
+        progressSaver.GetComponent<progressSaver>().level2 = levels[1];
+
+        SaveSystem.SavePlayer(progressSaver.GetComponent<progressSaver>());
+    }
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        progressSaver.GetComponent<progressSaver>().level1 = data.level1;
+        progressSaver.GetComponent<progressSaver>().level2 = data.level2;
+
+        levels[0] = data.level1;
+        levels[1] = data.level2;
+
+    }
 
 }

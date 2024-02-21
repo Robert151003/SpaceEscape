@@ -6,18 +6,24 @@ using UnityEngine;
 
 public class computerController : MonoBehaviour
 {
+    [Header("Player Objects")]
+    public GameObject player;
+    public GameObject Manager;
     public GameObject robot;
     public GameObject robotLights;
-    public GameObject Manager;
-    public GameObject player;
-    public GameObject instruction;
-    public AudioSource robotStartingUp;
-
+   
+    [Header("Game-Play")]
     public int robotNum;
+
+    [Header("UI")]
+    public GameObject instruction;
+
+    [Header("Audio")]
+    public AudioSource robotStartingUp;
 
     private void Update()
     {
-        if(Vector2.Distance(this.transform.position, player.transform.position)<2)
+        if(Vector2.Distance(this.transform.position, player.transform.position) < 2)
         {
             if (Manager.GetComponent<UIController>().introLevel)
             {
@@ -28,11 +34,13 @@ public class computerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                // Changes Icon for whose controlling
                 for (int i = 0; i < Manager.GetComponent<manager>().playerIcons.Length; i++)
                 {
                     Manager.GetComponent<manager>().fadeIcons(Manager.GetComponent<manager>().playerIcons[i]);
                 }
                 Manager.GetComponent<manager>().unfadeIcons(Manager.GetComponent<manager>().playerIcons[robotNum]);
+
 
                 if (Manager.GetComponent<UIController>().introLevel)
                 {
@@ -40,13 +48,16 @@ public class computerController : MonoBehaviour
                 }
 
                 robotStartingUp.Play();
-                robotLights.SetActive(true);
-                player.GetComponent<controller>().robotLights = robotLights;
-                player.GetComponent<controller>().setBoolsFalse();
+                
+                player.GetComponent<controller>().rb.velocity = new Vector2(0, 0);
+
                 player.GetComponent<controller>().controllingRobot = robot;
+                player.GetComponent<controller>().robotLights = robotLights;
+                robotLights.SetActive(true);
+                
                 player.GetComponent<controller>().controlRobot = true;
                 player.GetComponent<controller>().canMove = false;
-                player.GetComponent<controller>().rb.velocity = new Vector2(0, 0);
+                
             }
         }
         else

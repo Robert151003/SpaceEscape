@@ -5,13 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public bool[] levels;
+    public bool level1;
+    public bool level2;
 
     public PlayerData(progressSaver player)
     {
-        for (int i = 0; i < levels.Length; i++)
-        {
-            levels[i] = player.levels[i];
-        }
+        level1 = player.level1;
+        level2 = player.level2;
     }
 }

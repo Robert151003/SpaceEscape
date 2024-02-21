@@ -1,39 +1,57 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
-using System.Xml.Linq;
+using System;
 
 public static class SaveSystem
 {
     public static void SavePlayer(progressSaver player)
     {
+        // Remove the Application.isEditor check for now
+
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = /*Application.persistentDataPath*/"C:/Users/rober/Documents/GitHub/SpaceEscape/data" + "/playerData.fun";
-        FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(player);
+        string path = Application.persistentDataPath + "/Player.fun";
 
-        formatter.Serialize(stream, data);
-        stream.Close();
+        try
+        {
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                PlayerData data = new PlayerData(player);
+                formatter.Serialize(stream, data);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error saving player data: " + e.Message);
+        }
     }
 
     public static PlayerData LoadPlayer()
     {
-        string path = /*Application.persistentDataPath*/ "C:/Users/rober/Documents/GitHub/SpaceEscape/data" + "/playerData.fun";
+        string path = Application.persistentDataPath + "/Player.fun";
+
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-            
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            stream.Close();
 
-            return data;
+            try
+            {
+                using (FileStream stream = new FileStream(path, FileMode.Open))
+                {
+                    PlayerData data = formatter.Deserialize(stream) as PlayerData;
+                    return data;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error loading save file: " + e.Message);
+                return null;
+            }
         }
         else
         {
-            Debug.Log("Save file not found in " + path);
+            Debug.Log("Save File not found in " + path);
             return null;
         }
     }

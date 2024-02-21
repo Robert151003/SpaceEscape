@@ -7,13 +7,18 @@ using UnityEngine.Tilemaps;
 
 public class robotController : MonoBehaviour
 {
+    [Header("Water TileMap")]
     public Tilemap waterTilemap;
+
+    [Header("Game-Play")]
     public CameraShake cameraShake;
-    public Animator animator;
     public Rigidbody2D rb;
+    public Animator animator;
+    
+    [Header("Audio")]
     public AudioSource rolling;
-    public bool playingSound;
     public AudioSource exploding;
+    public bool playingSound;
     public bool explosion;
     public float timer;
 
@@ -42,8 +47,6 @@ public class robotController : MonoBehaviour
                     // Calculate distance between tile position and object position in world space
                     float distance = Vector3.Distance(tileWorldPosition, transform.position);
 
-
-
                     if (distance < 2.5f)
                     {
                         StartCoroutine(cameraShake.shake(0.1f, 0.022f));
@@ -63,13 +66,11 @@ public class robotController : MonoBehaviour
     public void Update()
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-        {
-            
+        {           
             if (!playingSound)
             {
                 rolling.Play();
-                playingSound = true;
-                
+                playingSound = true;                
             }
         }
         if(Mathf.Abs(rb.velocity.magnitude) == 0)
@@ -85,7 +86,6 @@ public class robotController : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
-
         }
         GetTilesInTilemap();
     }

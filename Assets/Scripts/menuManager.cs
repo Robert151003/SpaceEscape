@@ -7,21 +7,25 @@ public class menuManager : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject pauseMenu;
+
+    public bool[] levels;
+
+    public void Start()
+    {
+        LoadPlayer();
+    }
     public void start()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);       
     }
     public void Continue()
     {
         SceneManager.LoadScene(1);
-        //make it so that it loads up the players last level left off
-        //grey button when the player has not completed level 1
     }
     public void levelSelector()
     {
         pauseMenu.SetActive(true);
         mainMenu.SetActive(false);
-        //have levels grey out (unclickable) if the previous is not complete
     }
 
     public void loadLevel(int levelNum)
@@ -37,5 +41,14 @@ public class menuManager : MonoBehaviour
     public void quit()
     {
         Application.Quit();
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        levels[0] = data.level1;
+        levels[1] = data.level2;
+
     }
 }
