@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5172544620025721205}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,19 +125,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  canMove: 1
+  levelComplete: 0
   rb: {fileID: 0}
+  Manager: {fileID: 0}
+  playerAnimator: {fileID: 7422737875574989846}
+  controlRobot: 0
   controllingRobot: {fileID: 0}
   robotLights: {fileID: 0}
-  controlRobot: 0
-  door: {fileID: 0}
   openDoor: {fileID: -624850626, guid: 83af4c0dcd9f45e0b1bae337e1573b01, type: 3}
   closeDoor: {fileID: 1557380818, guid: 83af4c0dcd9f45e0b1bae337e1573b01, type: 3}
-  levelComplete: 0
-  Manager: {fileID: 0}
-  canMove: 1
-  playerAnimator: {fileID: 7422737875574989846}
+  door: {fileID: 0}
+  doorBlocker: {fileID: 0}
   robotPowerDown: {fileID: 3747666528089791625}
   running: {fileID: 5172544620025721205}
+  runningSound: 0
 --- !u!50 &4218666877264095487
 Rigidbody2D:
   serializedVersion: 4
@@ -219,7 +221,7 @@ AudioSource:
   m_GameObject: {fileID: 3234884338464587790}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6300282470118690883, guid: 4cb3a223db194fc46bc8d6760a171e87, type: 2}
   m_audioClip: {fileID: 8300000, guid: ed6df33d773935341a7ba86d06a86234, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -315,7 +317,7 @@ AudioSource:
   m_GameObject: {fileID: 3234884338464587790}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6300282470118690883, guid: 4cb3a223db194fc46bc8d6760a171e87, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1761094db2e6f69469bd88505e03b3a7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

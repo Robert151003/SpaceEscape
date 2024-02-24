@@ -381,9 +381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1a87027fd7e91428194087395c721c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robot: {fileID: 0}
-  Manager: {fileID: 0}
   player: {fileID: 0}
+  Manager: {fileID: 0}
+  robot: {fileID: 0}
+  robotLights: {fileID: 0}
+  robotNum: 0
   instruction: {fileID: 6866509018134141506}
   robotStartingUp: {fileID: 3817912043445668401}
 --- !u!82 &3817912043445668401
@@ -395,7 +397,7 @@ AudioSource:
   m_GameObject: {fileID: 7505674104579620894}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6300282470118690883, guid: 4cb3a223db194fc46bc8d6760a171e87, type: 2}
   m_audioClip: {fileID: 8300000, guid: daa4be0b6234c714597075aed6e18536, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5

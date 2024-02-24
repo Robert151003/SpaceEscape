@@ -13,12 +13,12 @@ public class menuLevelButtons : MonoBehaviour
         if (menuManager.GetComponent<menuManager>().levels[levelNum - 2])
         {
             this.GetComponent<Button>().interactable = true;
-            this.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            this.GetComponent<Image>().color = new Color(0.6650944f, 1, 0.8071122f, 1);
         }
         else
         {
             this.GetComponent<Button>().interactable = false;
-            this.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+            this.GetComponent<Image>().color = new Color(0.6650944f, 1, 0.8071122f, 0.8f);
         }
     }
 }

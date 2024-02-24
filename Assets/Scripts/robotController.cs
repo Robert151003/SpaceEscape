@@ -14,6 +14,7 @@ public class robotController : MonoBehaviour
     public CameraShake cameraShake;
     public Rigidbody2D rb;
     public Animator animator;
+    public bool destroyed;
     
     [Header("Audio")]
     public AudioSource rolling;
@@ -95,6 +96,7 @@ public class robotController : MonoBehaviour
         // Check if the colliding object is the one you want to destroy
         if (other.CompareTag("Water"))
         {
+            destroyed = true;
             exploding.Play();
             rolling.Stop();
             animator.SetBool("Explode", true);

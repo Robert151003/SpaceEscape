@@ -23,6 +23,7 @@ public class controller : MonoBehaviour
     public Sprite openDoor;
     public Sprite closeDoor;
     public GameObject door;
+    public GameObject doorLight;
     public GameObject doorBlocker;
 
     [Header("Audio")]
@@ -68,14 +69,18 @@ public class controller : MonoBehaviour
             }
 
             rb = controllingRobot.GetComponent<Rigidbody2D>();
-            moveSpeed = 8f;// 2.5 after testing
+            moveSpeed = 2.5f;
             MovePlayer(controllingRobot, movement);
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) || controllingRobot.GetComponent<robotController>().destroyed)
             {
-                robotPowerDown.Play();
+                if (!controllingRobot.GetComponent<robotController>().destroyed)
+                {
+                    robotPowerDown.Play();
 
-                robotLights.SetActive(false);
+                    robotLights.SetActive(false);
+                }
+                
                 controlRobot = false;
                 canMove = true;
 
@@ -91,6 +96,7 @@ public class controller : MonoBehaviour
         if (levelComplete)
         {
             door.GetComponent<SpriteRenderer>().sprite = openDoor;
+            doorLight.SetActive(false);
             doorBlocker.SetActive(false);
             if (Manager.GetComponent<UIController>().introLevel)
             {
@@ -101,6 +107,7 @@ public class controller : MonoBehaviour
         else
         {
             door.GetComponent<SpriteRenderer>().sprite = closeDoor;
+            doorLight.SetActive(true);
             doorBlocker.SetActive(true);
         }        
     }
@@ -189,6 +196,7 @@ public class controller : MonoBehaviour
         if (other.CompareTag("door"))
         {
             canMove = false;
+            //Manager.GetComponent<manager>().levelNum = SceneManager.GetActiveScene().buildIndex+1;
             Manager.GetComponent<manager>().fade.SetTrigger("fade");
             Manager.GetComponent<manager>().levels[SceneManager.GetActiveScene().buildIndex - 1] = true;
             Manager.GetComponent<manager>().SavePlayer();

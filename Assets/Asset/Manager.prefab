@@ -45,15 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655e2b6795e51f045b8963540de16eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelComplete: 0
   player: {fileID: 0}
+  levelComplete: 0
   fade: {fileID: 0}
   playerIcons:
   - {fileID: 0}
   - {fileID: 0}
   progressSaver: {fileID: 0}
-  timer: 0
-  levels: 0000
+  levels: 00000000000000000000
+  levelNum: 0
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  soundSlider: {fileID: 0}
+  masterMixer: {fileID: 0}
 --- !u!114 &1063159475313156508
 MonoBehaviour:
   m_ObjectHideFlags: 0

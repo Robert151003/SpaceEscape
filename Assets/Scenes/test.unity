@@ -1034,8 +1034,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539303291}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.18, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1095,7 +1095,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 37cf1aace66df134b8247a239e1508b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1901,8 +1901,8 @@ Tilemap:
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -8, y: -7, z: 0}
-  m_Size: {x: 16, y: 11, z: 1}
+  m_Origin: {x: -20, y: -7, z: 0}
+  m_Size: {x: 28, y: 11, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -2186,7 +2186,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c8c425083283546a1ae2748bc67509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels: 
+  level1: 0
+  level2: 0
+  level3: 0
+  level4: 0
+  level5: 0
+  level6: 0
+  level7: 0
+  level8: 0
+  level9: 0
+  level10: 0
+  levelNum: 0
 --- !u!4 &661780038
 Transform:
   m_ObjectHideFlags: 0
@@ -2773,7 +2783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0012207031}
+  m_AnchoredPosition: {x: 0, y: -0.001953125}
   m_SizeDelta: {x: 0, y: 0.39001465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863358923
@@ -3588,9 +3598,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655e2b6795e51f045b8963540de16eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelComplete: 0
   player: {fileID: 6323616740662238738}
+  levelComplete: 0
   fade: {fileID: 1394963911}
+  playerIcons: []
+  progressSaver: {fileID: 0}
+  levels: 
+  levelNum: 0
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  soundSlider: {fileID: 0}
+  masterMixer: {fileID: 0}
 --- !u!4 &1573050073
 Transform:
   m_ObjectHideFlags: 0
@@ -3636,7 +3654,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c8c425083283546a1ae2748bc67509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels: 0000
+  level1: 0
+  level2: 0
+  level3: 0
+  level4: 0
+  level5: 0
+  level6: 0
+  level7: 0
+  level8: 0
+  level9: 0
+  level10: 0
+  levelNum: 0
 --- !u!1 &1665924915
 GameObject:
   m_ObjectHideFlags: 0
