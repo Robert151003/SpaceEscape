@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11.24, y: -7.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 535588065163832000}
@@ -136,6 +136,7 @@ MonoBehaviour:
   openDoor: {fileID: -624850626, guid: 83af4c0dcd9f45e0b1bae337e1573b01, type: 3}
   closeDoor: {fileID: 1557380818, guid: 83af4c0dcd9f45e0b1bae337e1573b01, type: 3}
   door: {fileID: 0}
+  doorLight: {fileID: 0}
   doorBlocker: {fileID: 0}
   robotPowerDown: {fileID: 3747666528089791625}
   running: {fileID: 5172544620025721205}

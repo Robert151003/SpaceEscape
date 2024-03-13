@@ -13,6 +13,9 @@ public class UIController : MonoBehaviour
     public bool introLevel;
 
     public GameObject pauseMenu;
+    public GameObject player;
+
+    public bool start;
     void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
@@ -22,13 +25,16 @@ public class UIController : MonoBehaviour
     }
     void Update()
     {
-        if (introLevel)
+        if (start)
         {
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            if (introLevel)
             {
-                keyAnimator.SetBool("Leave", true);
+                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+                {
+                    keyAnimator.SetBool("Leave", true);
+                }
             }
-        }
+        }        
     }
 
     public void Continue()

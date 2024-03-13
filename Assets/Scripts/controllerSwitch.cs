@@ -16,12 +16,13 @@ public class controllerSwitch : MonoBehaviour
     public bool switchPressed;
     public bool startCounting;
     public bool switchTurnedOn;
+    public bool colourRobotSwitch;
     public float timer;
 
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.CompareTag("Robot") || other.CompareTag("Block"))
+        if((other.CompareTag("Robot") || other.CompareTag("Block")) && !colourRobotSwitch)
         {            
             switchOn.Play();
             timer = 0.3f;

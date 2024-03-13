@@ -108,6 +108,21 @@ public class manager : MonoBehaviour
         progressSaver.GetComponent<progressSaver>().level8 = levels[7];
         progressSaver.GetComponent<progressSaver>().level9 = levels[8];
         progressSaver.GetComponent<progressSaver>().level10 = levels[9];
+        progressSaver.GetComponent<progressSaver>().level11 = levels[10];
+        progressSaver.GetComponent<progressSaver>().level12 = levels[11];
+        progressSaver.GetComponent<progressSaver>().level13 = levels[12];
+        progressSaver.GetComponent<progressSaver>().level14 = levels[13];
+        progressSaver.GetComponent<progressSaver>().level15 = levels[14];
+        progressSaver.GetComponent<progressSaver>().level16 = levels[15];
+        progressSaver.GetComponent<progressSaver>().level17 = levels[16];
+        progressSaver.GetComponent<progressSaver>().level18 = levels[17];
+        progressSaver.GetComponent<progressSaver>().level19 = levels[18];
+        progressSaver.GetComponent<progressSaver>().level20 = levels[19];
+        progressSaver.GetComponent<progressSaver>().level21 = levels[20];
+        progressSaver.GetComponent<progressSaver>().level22 = levels[21];
+        progressSaver.GetComponent<progressSaver>().level23 = levels[22];
+        progressSaver.GetComponent<progressSaver>().level24 = levels[23];
+
         progressSaver.GetComponent<progressSaver>().levelNum = levelNum;
 
         SaveSystem.SavePlayer(progressSaver.GetComponent<progressSaver>());
