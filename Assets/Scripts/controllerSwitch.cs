@@ -32,12 +32,18 @@ public class controllerSwitch : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        switchOn.Play();
-        timer = 0.3f;
-        switchPressed = false;
+        if (!colourRobotSwitch)
+        {
+            switchOn.Play();
+            timer = 0.3f;
+            startCounting = true;
+            switchPressed = false;
+        }      
     }
     private void Update()
     {
+        
+
         if (startCounting)
         {
             timer -= Time.deltaTime;

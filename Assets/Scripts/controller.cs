@@ -69,7 +69,7 @@ public class controller : MonoBehaviour
             }
 
             rb = controllingRobot.GetComponent<Rigidbody2D>();
-            moveSpeed = 2.5f;
+            moveSpeed = 3.5f;
             MovePlayer(controllingRobot, movement);
 
             if (Input.GetKeyDown(KeyCode.Escape) || controllingRobot.GetComponent<robotController>().destroyed)
@@ -207,7 +207,7 @@ public class controller : MonoBehaviour
     IEnumerator changeLevel()
     {
         yield return new WaitForSeconds(1f);
-        if(SceneManager.GetActiveScene().buildIndex == 6)
+        if(SceneManager.GetActiveScene().buildIndex == 18)
         {
             SceneManager.LoadScene(0);
         }

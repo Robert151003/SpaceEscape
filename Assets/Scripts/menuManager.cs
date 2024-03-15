@@ -19,7 +19,7 @@ public class menuManager : MonoBehaviour
     public void Start()
     {
         LoadPlayer();
-        levelNumber.text = $"(Level {levelNum})";
+        levelNumber.text = $"(Level {levelNum+1})";
     }
     public void start()
     {
@@ -27,7 +27,7 @@ public class menuManager : MonoBehaviour
     }
     public void Continue()
     {
-        SceneManager.LoadScene(levelNum);
+        SceneManager.LoadScene(levelNum+1);
     }
     public void levelSelector()
     {

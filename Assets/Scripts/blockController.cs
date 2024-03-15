@@ -8,6 +8,7 @@ public class blockController : MonoBehaviour
     public bool turnedOn;
     public GameObject attractor;
     public GameObject player;
+    public GameObject UseText;
     public Animator buttonAnim;
     public AudioSource click;
     public bool pressed;
@@ -30,7 +31,7 @@ public class blockController : MonoBehaviour
 
         if (Vector2.Distance(this.transform.position, player.transform.position) < 2)
         {
-            //instruction.SetActive(true);
+            UseText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 click.Play();
@@ -53,7 +54,7 @@ public class blockController : MonoBehaviour
         }
         else
         {
-            //instruction.SetActive(false);
+            UseText.SetActive(false);
         }
     }
 }
