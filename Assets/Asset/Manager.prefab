@@ -52,7 +52,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   progressSaver: {fileID: 0}
-  levels: 000000000000000000000000000000000000000000000000000000000000
+  levels: 000000000000000000000000000000000000000000000000
   levelNum: 0
   masterSlider: {fileID: 0}
   musicSlider: {fileID: 0}

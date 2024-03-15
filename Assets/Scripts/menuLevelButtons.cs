@@ -10,7 +10,7 @@ public class menuLevelButtons : MonoBehaviour
 
     private void Update()
     {
-        if (menuManager.GetComponent<menuManager>().levels[levelNum - 2])
+        if (menuManager.GetComponent<menuManager>().levels[levelNum-2])
         {
             this.GetComponent<Button>().interactable = true;
             this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r, this.GetComponent<Image>().color.g, this.GetComponent<Image>().color.b, 1);

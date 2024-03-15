@@ -34,9 +34,7 @@ public class blockController : MonoBehaviour
             UseText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                click.Play();
-                
-                
+                click.Play();            
                 
                 turnedOn = !turnedOn;
                 

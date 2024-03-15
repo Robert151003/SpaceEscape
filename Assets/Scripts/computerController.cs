@@ -24,7 +24,7 @@ public class computerController : MonoBehaviour
     {
         if (robot)
         {
-            if (Vector2.Distance(this.transform.position, player.transform.position) < 2)
+            if (Vector2.Distance(this.transform.position, player.transform.position) < 2 && !player.GetComponent<controller>().controlRobot)
             {
                 if (Manager.GetComponent<UIController>().introLevel)
                 {
@@ -58,6 +58,7 @@ public class computerController : MonoBehaviour
                     player.GetComponent<controller>().robotLights = robotLights;
                     robotLights.SetActive(true);
 
+                    player.GetComponent<controller>().switchTimer = 0.2f;
                     player.GetComponent<controller>().controlRobot = true;
                     player.GetComponent<controller>().canMove = false;
 

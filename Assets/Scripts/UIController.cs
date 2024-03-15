@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     public Animator endLevel;
 
     public bool introLevel;
+    public bool paused;
 
     public GameObject pauseMenu;
     public GameObject player;
@@ -34,12 +35,21 @@ public class UIController : MonoBehaviour
                     keyAnimator.SetBool("Leave", true);
                 }
             }
-        }        
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && !paused)
+        {
+            Pause();
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && paused)
+        {
+            Continue();
+        }
     }
 
     public void Continue()
     {
         Time.timeScale = 1f;
+        paused = false;
         pauseMenu.SetActive(false);
     }
     public void Restart()
@@ -54,6 +64,7 @@ public class UIController : MonoBehaviour
     }
     public void Pause()
     {
+        paused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }

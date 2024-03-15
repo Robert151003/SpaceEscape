@@ -18,6 +18,7 @@ public class controller : MonoBehaviour
     public bool controlRobot;
     public GameObject controllingRobot;
     public GameObject robotLights;
+    public float switchTimer;
 
     [Header("Door")]    
     public Sprite openDoor;
@@ -68,17 +69,20 @@ public class controller : MonoBehaviour
                 Manager.GetComponent<UIController>().robotAnimator.SetBool("In", true);
             }
 
+            switchTimer -= Time.deltaTime;
             rb = controllingRobot.GetComponent<Rigidbody2D>();
             moveSpeed = 3.5f;
             MovePlayer(controllingRobot, movement);
 
-            if (Input.GetKeyDown(KeyCode.Escape) || controllingRobot.GetComponent<robotController>().destroyed)
+            if ((Input.GetKeyDown(KeyCode.E) && switchTimer<=0) || controllingRobot.GetComponent<robotController>().destroyed)
             {
                 if (!controllingRobot.GetComponent<robotController>().destroyed)
                 {
                     robotPowerDown.Play();
 
                     robotLights.SetActive(false);
+
+                    
                 }
                 
                 controlRobot = false;
@@ -195,10 +199,11 @@ public class controller : MonoBehaviour
     {
         if (other.CompareTag("door"))
         {
+            
             canMove = false;
-            //Manager.GetComponent<manager>().levelNum = SceneManager.GetActiveScene().buildIndex+1;
             Manager.GetComponent<manager>().fade.SetTrigger("fade");
             Manager.GetComponent<manager>().levels[SceneManager.GetActiveScene().buildIndex - 1] = true;
+            Debug.Log(SceneManager.GetActiveScene().buildIndex - 1);
             Manager.GetComponent<manager>().SavePlayer();
             StartCoroutine(changeLevel());
         }

@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class manager : MonoBehaviour
@@ -18,6 +20,7 @@ public class manager : MonoBehaviour
     [Header("UI")]
     public Animator fade;
     public GameObject[] playerIcons;
+    public TMP_Text levelNumText;
 
     [Header("Saving")]
     public GameObject progressSaver;
@@ -42,6 +45,8 @@ public class manager : MonoBehaviour
         musicSlider.value = progressSaver.GetComponent<progressSaver>().musicVol;
         masterMixer.SetFloat("SoundVolume", progressSaver.GetComponent<progressSaver>().soundVol);
         soundSlider.value = progressSaver.GetComponent<progressSaver>().soundVol;
+
+        levelNumText.text = "Level " + SceneManager.GetActiveScene().buildIndex.ToString();
     }
 
     private void Update()

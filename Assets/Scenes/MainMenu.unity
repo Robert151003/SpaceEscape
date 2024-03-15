@@ -5921,7 +5921,7 @@ PrefabInstance:
       objectReference: {fileID: 150752436}
     - target: {fileID: 7217361772578709285, guid: 8f2b773f3c628c5438a2d0e89b33abae, type: 3}
       propertyPath: levels.Array.size
-      value: 30
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 7217361772578709285, guid: 8f2b773f3c628c5438a2d0e89b33abae, type: 3}
       propertyPath: playerIcons.Array.data[0]
@@ -6271,7 +6271,7 @@ MonoBehaviour:
   settingsMenu: {fileID: 305057413}
   achievementsMenu: {fileID: 1197536029}
   levelNumber: {fileID: 1548732975}
-  levels: 000000000000000000000000000000000000000000000000000000000000
+  levels: 000000000000000000000000000000000000000000000000
   levelNum: 0
 --- !u!4 &952717163
 Transform:
@@ -6466,6 +6466,22 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 998012950}
+          m_TargetAssemblyTypeName: mouseOver, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 9
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -9020,6 +9036,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1288665266}
+          m_TargetAssemblyTypeName: mouseOver, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1288665266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11057,7 +11089,6 @@ GameObject:
   - component: {fileID: 1664131621}
   - component: {fileID: 1664131620}
   - component: {fileID: 1664131619}
-  - component: {fileID: 1664131622}
   m_Layer: 5
   m_Name: Level1
   m_TagString: Untagged
@@ -11179,20 +11210,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664131617}
   m_CullTransparentMesh: 1
---- !u!114 &1664131622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664131617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f5b5116e9060b4fb13b497f3f5321f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelNum: 1
-  menuManager: {fileID: 952717161}
 --- !u!1 &1707811756
 GameObject:
   m_ObjectHideFlags: 0
@@ -12618,6 +12635,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1904708354
 GameObject:
   m_ObjectHideFlags: 0
