@@ -50,11 +50,11 @@ public class robotController : MonoBehaviour
 
                     if (distance < 2.5f)
                     {
-                        StartCoroutine(cameraShake.shake(0.1f, 0.022f));
+                        StartCoroutine(cameraShake.shake(0.1f, 0.012f));
                     }
                     else if (distance < 3.5f)
                     {
-                        StartCoroutine(cameraShake.shake(0.1f, 0.015f));
+                        StartCoroutine(cameraShake.shake(0.1f, 0.010f));
                     }
                     else if (distance < 4f)
                     {

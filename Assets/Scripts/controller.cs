@@ -13,6 +13,7 @@ public class controller : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject Manager;
     public Animator playerAnimator;
+    public GameObject retryButton;
 
     [Header("Robot")]
     public bool controlRobot;
@@ -51,8 +52,10 @@ public class controller : MonoBehaviour
         
         if (!controlRobot)
         {
+
             if (canMove)
             {
+                switchTimer -= Time.deltaTime;
                 rb = GetComponent<Rigidbody2D>();
                 moveSpeed = 5f;
                 MovePlayer(this.gameObject, movement);
@@ -60,7 +63,7 @@ public class controller : MonoBehaviour
             else
             {
                 rb.velocity = new Vector2(0, 0);
-            }           
+            }          
         }
         else
         {
@@ -76,6 +79,7 @@ public class controller : MonoBehaviour
 
             if ((Input.GetKeyDown(KeyCode.E) && switchTimer<=0) || controllingRobot.GetComponent<robotController>().destroyed)
             {
+                switchTimer = 0.2f;
                 if (!controllingRobot.GetComponent<robotController>().destroyed)
                 {
                     robotPowerDown.Play();
@@ -113,7 +117,12 @@ public class controller : MonoBehaviour
             door.GetComponent<SpriteRenderer>().sprite = closeDoor;
             doorLight.SetActive(true);
             doorBlocker.SetActive(true);
-        }        
+        }
+
+        if (controllingRobot.GetComponent<robotController>().destroyed)
+        {
+            retryButton.SetActive(true);
+        }
     }
     void MovePlayer(GameObject controllingPlayer, Vector2 movement)
     {

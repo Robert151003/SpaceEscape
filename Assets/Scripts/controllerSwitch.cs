@@ -20,26 +20,38 @@ public class controllerSwitch : MonoBehaviour
     public float timer;
 
 
-    private void OnTriggerStay2D(Collider2D other)
+    private int objectsOnSwitch = 0; // Track the number of objects on the switch
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if((other.CompareTag("Robot") || other.CompareTag("Block")) && !colourRobotSwitch)
-        {            
-            switchOn.Play();
-            timer = 0.3f;
-            startCounting = true;
-            switchPressed = true;
+        if (other.CompareTag("Robot") || other.CompareTag("Block"))
+        {
+            objectsOnSwitch++;
+            if (!colourRobotSwitch)
+            {
+                switchOn.Play();
+                timer = 0.3f;
+                startCounting = true;
+                switchPressed = true;
+            }
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!colourRobotSwitch)
+        if (other.CompareTag("Robot") || other.CompareTag("Block"))
         {
-            switchOn.Play();
-            timer = 0.3f;
-            startCounting = true;
-            switchPressed = false;
-        }      
+            objectsOnSwitch--;
+            if (objectsOnSwitch == 0 && !colourRobotSwitch)
+            {
+                switchOn.Play();
+                timer = 0.3f;
+                startCounting = true;
+                switchPressed = false;
+            }
+        }
     }
+
     private void Update()
     {
         

@@ -33,7 +33,7 @@ public class computerController : MonoBehaviour
 
                 instruction.SetActive(true);
 
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && player.GetComponent<controller>().switchTimer <= 0)
                 {
                     // Changes Icon for whose controlling
                     for (int i = 0; i < Manager.GetComponent<manager>().playerIcons.Length; i++)
@@ -53,6 +53,7 @@ public class computerController : MonoBehaviour
                     player.GetComponent<controller>().rb.velocity = new Vector2(0, 0);
                     player.GetComponent<controller>().setBoolsFalse();
                     player.GetComponent<controller>().playerAnimator.SetBool("idleUp", true);
+                    player.GetComponent<controller>().playerAnimator.SetFloat("speed", 0);
 
                     player.GetComponent<controller>().controllingRobot = robot;
                     player.GetComponent<controller>().robotLights = robotLights;
