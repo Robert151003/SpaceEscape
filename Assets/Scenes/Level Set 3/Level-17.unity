@@ -3856,10 +3856,10 @@ RectTransform:
   m_Children:
   - {fileID: 975983390}
   - {fileID: 746248124}
-  - {fileID: 1248615360}
-  - {fileID: 1396137636}
   - {fileID: 1098621148}
   - {fileID: 1021069257}
+  - {fileID: 1248615360}
+  - {fileID: 1396137636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

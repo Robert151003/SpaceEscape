@@ -13,6 +13,8 @@ public class rocketScript : MonoBehaviour
     public GameObject rocket;
     public bool moveRocket;
 
+    public AudioSource rocketSound;
+
     private void Update()
     {
         if (moveRocket)
@@ -25,10 +27,9 @@ public class rocketScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")){
-            rocketDoor.GetComponent<SpriteRenderer>().sprite = doorClosed;
-            camera.GetComponent<CameraShake>().shake(5f, 2f);
-            moveRocket = true;
-            makePlayerChild(other.gameObject);
+
+            StartCoroutine(startRocket(other.gameObject));
+            
         }
     }
 
@@ -36,5 +37,16 @@ public class rocketScript : MonoBehaviour
     {
         player.transform.SetParent(rocket.transform);
         player.GetComponent<controller>().canMove = true;
+    }
+
+    IEnumerator startRocket(GameObject other)
+    {
+        rocketSound.Play();
+        rocketDoor.GetComponent<SpriteRenderer>().sprite = doorClosed;
+        makePlayerChild(other.gameObject);
+        yield return new WaitForSeconds(1f);
+        camera.GetComponent<CameraShake>().shake(5f, 2f);
+        moveRocket = true;
+        
     }
 }

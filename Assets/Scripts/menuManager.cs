@@ -19,15 +19,32 @@ public class menuManager : MonoBehaviour
     public void Start()
     {
         LoadPlayer();
-        levelNumber.text = $"(Level {levelNum+1})";
+        if(levelNum == 24)
+        {
+            levelNumber.text = "(Level 24)";
+        }
+        else
+        {
+            levelNumber.text = $"(Level {levelNum + 1})";
+        }
+        
     }
     public void start()
     {
+
         SceneManager.LoadScene(1);       
     }
     public void Continue()
     {
-        SceneManager.LoadScene(levelNum+1);
+        if (levelNum == 24)
+        {
+            SceneManager.LoadScene(levelNum);
+        }
+        else
+        {
+            SceneManager.LoadScene(levelNum + 1);
+        }
+            
     }
     public void levelSelector()
     {

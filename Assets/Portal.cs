@@ -8,13 +8,14 @@ public class Portal : MonoBehaviour
     public Transform robotTeleportPosition;
     public Transform boxTeleportPosition;
     private bool isTeleporting = false;
+    public AudioSource teleportSound;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!isTeleporting)
         {
             if (other.CompareTag("Robot"))
-        {
+            {   
                 isTeleporting = true;
                 TeleportObject(other.transform, otherPortal.GetComponent<Portal>().robotTeleportPosition.transform);
             }
@@ -37,6 +38,7 @@ public class Portal : MonoBehaviour
 
     public void TeleportObject(Transform objTransform, Transform transformPos)
     {
+        teleportSound.Play();
         objTransform.transform.position = transformPos.position;
         isTeleporting = false;
     }
