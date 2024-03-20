@@ -171,7 +171,7 @@ MonoBehaviour:
   turnedOn: 0
   attractor: {fileID: 0}
   player: {fileID: 0}
-  UseText: {fileID: 0}
+  UseText: {fileID: 7606163299171637797}
   buttonAnim: {fileID: 8077121024172241507}
   click: {fileID: 368704670400840347}
   pressed: 0

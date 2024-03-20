@@ -207,10 +207,7 @@ public class controller : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("door"))
-        {
-            
-            canMove = false;
-            Manager.GetComponent<manager>().fade.SetTrigger("fade");
+        {           
             Manager.GetComponent<manager>().levels[SceneManager.GetActiveScene().buildIndex - 1] = true;
             Debug.Log(SceneManager.GetActiveScene().buildIndex - 1);
             Manager.GetComponent<manager>().SavePlayer();
@@ -220,13 +217,20 @@ public class controller : MonoBehaviour
 
     IEnumerator changeLevel()
     {
-        yield return new WaitForSeconds(1f);
-        if(SceneManager.GetActiveScene().buildIndex == 18)
+        
+        if(SceneManager.GetActiveScene().buildIndex == 24)
         {
+            yield return new WaitForSeconds(2f);
+            Manager.GetComponent<manager>().fade.SetTrigger("fade");
+            yield return new WaitForSeconds(1f);
             SceneManager.LoadScene(0);
         }
         else
         {
+            canMove = false;
+            yield return new WaitForSeconds(1f);
+            Manager.GetComponent<manager>().fade.SetTrigger("fade");
+            yield return new WaitForSeconds(1f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         
