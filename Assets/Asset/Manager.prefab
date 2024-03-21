@@ -51,6 +51,7 @@ MonoBehaviour:
   playerIcons:
   - {fileID: 0}
   - {fileID: 0}
+  levelNumText: {fileID: 0}
   progressSaver: {fileID: 0}
   levels: 000000000000000000000000000000000000000000000000
   levelNum: 0
@@ -74,7 +75,12 @@ MonoBehaviour:
   eKeyAnimator: {fileID: 0}
   robotAnimator: {fileID: 0}
   endLevel: {fileID: 0}
+  blueSwitch: {fileID: 0}
+  colouredSwitch: {fileID: 0}
+  magnet: {fileID: 0}
+  UITimer: 4
   introLevel: 0
+  paused: 0
   pauseMenu: {fileID: 0}
   player: {fileID: 0}
   start: 0

@@ -25,6 +25,7 @@ public class colourSwitch : MonoBehaviour
             this.GetComponent<controllerSwitch>().timer = 0.3f;
             this.GetComponent<controllerSwitch>().startCounting = true;
             this.GetComponent<controllerSwitch>().switchPressed = true;
+            this.GetComponent<controllerSwitch>().objectsOnSwitch++;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -34,6 +35,7 @@ public class colourSwitch : MonoBehaviour
             this.GetComponent<controllerSwitch>().timer = 0.3f;
             this.GetComponent<controllerSwitch>().startCounting = true;
             this.GetComponent<controllerSwitch>().switchPressed = false;
+            this.GetComponent<controllerSwitch>().objectsOnSwitch--;
         }
         
     }

@@ -342,7 +342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1778239706558833513, guid: 03564f0afbc2a0b479159cceaef16dcf, type: 3}
       propertyPath: m_Name
-      value: PinkBlock (1)
+      value: PinkBlock
       objectReference: {fileID: 0}
     - target: {fileID: 5475835528210131301, guid: 03564f0afbc2a0b479159cceaef16dcf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -617,7 +617,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4236106185805740906, guid: de9fa345c5a13424ab583f27590ae5a5, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6194405591715291499, guid: de9fa345c5a13424ab583f27590ae5a5, type: 3}
       propertyPath: m_Name
@@ -1916,7 +1916,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1625906288368512767, guid: 685dd9224b4c8264295ee43a8116f43f, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2475768527337378101, guid: 685dd9224b4c8264295ee43a8116f43f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4344,7 +4344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7185536717068613152, guid: c6267b5829a1a6542bcbe5fc6f162739, type: 3}
       propertyPath: m_Name
-      value: YellowBlock (1)
+      value: YellowBlock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7486,7 +7486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8721719266940632624, guid: 5f6ca6b6dabb99644a3fc49a39faf41b, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8366,7 +8366,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4236106185805740906, guid: de9fa345c5a13424ab583f27590ae5a5, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6194405591715291499, guid: de9fa345c5a13424ab583f27590ae5a5, type: 3}
       propertyPath: m_Name
@@ -8896,7 +8896,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1625906288368512767, guid: 685dd9224b4c8264295ee43a8116f43f, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2475768527337378101, guid: 685dd9224b4c8264295ee43a8116f43f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10059,7 +10059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8721719266940632624, guid: 5f6ca6b6dabb99644a3fc49a39faf41b, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

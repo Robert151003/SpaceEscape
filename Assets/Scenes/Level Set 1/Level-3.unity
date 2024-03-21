@@ -8466,6 +8466,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 779586559}
     - target: {fileID: 1063159475313156508, guid: 8f2b773f3c628c5438a2d0e89b33abae, type: 3}
+      propertyPath: UITimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063159475313156508, guid: 8f2b773f3c628c5438a2d0e89b33abae, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1396137635}

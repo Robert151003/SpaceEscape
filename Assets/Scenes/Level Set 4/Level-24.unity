@@ -1878,11 +1878,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3991256112764563847, guid: cc86e300fa73cdb459476d3020d09f18, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 1440496533}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc86e300fa73cdb459476d3020d09f18, type: 3}
+--- !u!1 &293529719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2353734966254531321, guid: cc86e300fa73cdb459476d3020d09f18, type: 3}
+  m_PrefabInstance: {fileID: 293529718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &296797787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5366,6 +5375,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3551737969325754434, guid: 6dec7e93cabd4be48976fa187486df39, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 674628597}
     - target: {fileID: 6312376079876917980, guid: 6dec7e93cabd4be48976fa187486df39, type: 3}
       propertyPath: m_Name
       value: portalBlue (1)
@@ -5379,6 +5392,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dec7e93cabd4be48976fa187486df39, type: 3}
+--- !u!1 &478317420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6312376079876917980, guid: 6dec7e93cabd4be48976fa187486df39, type: 3}
+  m_PrefabInstance: {fileID: 478317419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -7008,6 +7026,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3551737969325754434, guid: 6dec7e93cabd4be48976fa187486df39, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 478317420}
     - target: {fileID: 6312376079876917980, guid: 6dec7e93cabd4be48976fa187486df39, type: 3}
       propertyPath: m_Name
       value: portalBlue
@@ -7021,6 +7043,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dec7e93cabd4be48976fa187486df39, type: 3}
+--- !u!1 &674628597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6312376079876917980, guid: 6dec7e93cabd4be48976fa187486df39, type: 3}
+  m_PrefabInstance: {fileID: 674628596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &674740046
 GameObject:
   m_ObjectHideFlags: 0
@@ -9425,11 +9452,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7399010698061130948, guid: c63ebab70479fd940b1f83a9a0b9c379, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 1951976363}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c63ebab70479fd940b1f83a9a0b9c379, type: 3}
+--- !u!1 &1094488979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3812452798086755707, guid: c63ebab70479fd940b1f83a9a0b9c379, type: 3}
+  m_PrefabInstance: {fileID: 1094488978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1109668668
 GameObject:
   m_ObjectHideFlags: 0
@@ -20390,6 +20426,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1132917023334250781, guid: 40377982a4edfad4094783418cf36f08, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 2061103391}
     - target: {fileID: 5241911939290870375, guid: 40377982a4edfad4094783418cf36f08, type: 3}
       propertyPath: m_Name
       value: portalPurple (1)
@@ -20443,6 +20483,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40377982a4edfad4094783418cf36f08, type: 3}
+--- !u!1 &1398228631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5241911939290870375, guid: 40377982a4edfad4094783418cf36f08, type: 3}
+  m_PrefabInstance: {fileID: 1398228630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1422228170
 GameObject:
   m_ObjectHideFlags: 0
@@ -20664,6 +20709,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3991256112764563847, guid: cc86e300fa73cdb459476d3020d09f18, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 293529719}
     - target: {fileID: 7035470048441671471, guid: cc86e300fa73cdb459476d3020d09f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.41
@@ -20673,6 +20722,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc86e300fa73cdb459476d3020d09f18, type: 3}
+--- !u!1 &1440496533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2353734966254531321, guid: cc86e300fa73cdb459476d3020d09f18, type: 3}
+  m_PrefabInstance: {fileID: 1440496532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1475352261
 GameObject:
   m_ObjectHideFlags: 0
@@ -22781,11 +22835,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7399010698061130948, guid: c63ebab70479fd940b1f83a9a0b9c379, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 1094488979}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c63ebab70479fd940b1f83a9a0b9c379, type: 3}
+--- !u!1 &1951976363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3812452798086755707, guid: c63ebab70479fd940b1f83a9a0b9c379, type: 3}
+  m_PrefabInstance: {fileID: 1951976362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2003941496
 GameObject:
   m_ObjectHideFlags: 0
@@ -23532,6 +23595,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1132917023334250781, guid: 40377982a4edfad4094783418cf36f08, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 1398228631}
     - target: {fileID: 5241911939290870375, guid: 40377982a4edfad4094783418cf36f08, type: 3}
       propertyPath: m_Name
       value: portalPurple
@@ -23585,6 +23652,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40377982a4edfad4094783418cf36f08, type: 3}
+--- !u!1 &2061103391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5241911939290870375, guid: 40377982a4edfad4094783418cf36f08, type: 3}
+  m_PrefabInstance: {fileID: 2061103390}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2069446808
 GameObject:
   m_ObjectHideFlags: 0

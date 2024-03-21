@@ -6270,6 +6270,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1313670727}
   settingsMenu: {fileID: 305057413}
   achievementsMenu: {fileID: 1197536029}
+  continueButton: {fileID: 115836811}
   levelNumber: {fileID: 1548732975}
   levels: 000000000000000000000000000000000000000000000000
   levelNum: 0

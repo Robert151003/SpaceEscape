@@ -17,6 +17,7 @@ public class controller : MonoBehaviour
 
     [Header("Robot")]
     public bool controlRobot;
+    public bool nearComputer;
     public GameObject controllingRobot;
     public GameObject robotLights;
     public float switchTimer;
@@ -43,6 +44,12 @@ public class controller : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("R key pressed");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         // Get input from the player
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
@@ -119,10 +126,12 @@ public class controller : MonoBehaviour
             doorBlocker.SetActive(true);
         }
 
-        if (controllingRobot.GetComponent<robotController>().destroyed)
+        if (controllingRobot && controllingRobot.GetComponent<robotController>().destroyed)
         {
             retryButton.SetActive(true);
         }
+
+        
     }
     void MovePlayer(GameObject controllingPlayer, Vector2 movement)
     {
@@ -210,6 +219,7 @@ public class controller : MonoBehaviour
         {           
             Manager.GetComponent<manager>().levels[SceneManager.GetActiveScene().buildIndex - 1] = true;
             Debug.Log(SceneManager.GetActiveScene().buildIndex - 1);
+            Manager.GetComponent<manager>().levelNum++;
             Manager.GetComponent<manager>().SavePlayer();
             StartCoroutine(changeLevel());
         }
@@ -228,7 +238,6 @@ public class controller : MonoBehaviour
         else
         {
             canMove = false;
-            yield return new WaitForSeconds(1f);
             Manager.GetComponent<manager>().fade.SetTrigger("fade");
             yield return new WaitForSeconds(1f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class menuManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class menuManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public GameObject achievementsMenu;
+
+    public GameObject continueButton;
 
     public TMP_Text levelNumber;
     public bool[] levels;
@@ -25,9 +28,29 @@ public class menuManager : MonoBehaviour
         }
         else
         {
-            levelNumber.text = $"(Level {levelNum + 1})";
+            levelNumber.text = $"(Level {levelNum})";
         }
+
         
+        
+    }
+
+    private void Update()
+    {
+        if (!levels[0])
+        {
+            //continueButton.GetComponent<Button>().interactable = false;
+            levelNumber.text = $"(Level 1)";
+        }
+        else
+        {
+            levelNumber.text = $"(Level {levelNum})";
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            back();
+        }
     }
     public void start()
     {
@@ -36,13 +59,14 @@ public class menuManager : MonoBehaviour
     }
     public void Continue()
     {
-        if (levelNum == 24)
+        if (levelNum == 24 || levelNum == 0)
         {
             SceneManager.LoadScene(levelNum);
         }
+
         else
         {
-            SceneManager.LoadScene(levelNum + 1);
+            SceneManager.LoadScene(levelNum);
         }
             
     }

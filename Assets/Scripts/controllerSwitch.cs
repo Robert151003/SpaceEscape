@@ -20,7 +20,7 @@ public class controllerSwitch : MonoBehaviour
     public float timer;
 
 
-    private int objectsOnSwitch = 0; // Track the number of objects on the switch
+    public int objectsOnSwitch = 0; // Track the number of objects on the switch
 
     private void OnTriggerEnter2D(Collider2D other)
     {

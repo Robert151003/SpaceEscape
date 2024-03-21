@@ -21,6 +21,7 @@ public class UIController : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject player;
+    
 
     public bool start;
     void Start()
@@ -37,6 +38,10 @@ public class UIController : MonoBehaviour
         {
             if (introLevel)
             {
+                if (start)
+                {
+                    keyAnimator.SetBool("In", true);
+                }
                 if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
                 {
                     keyAnimator.SetBool("Leave", true);

@@ -79,14 +79,8 @@ public class manager : MonoBehaviour
         masterMixer.SetFloat("SoundVolume", soundSlider.value);
         progressSaver.GetComponent<progressSaver>().soundVol = (int)soundSlider.value;
 
-        for (int i = 0; i < levels.Length; i++)
-        {
-            if (!levels[i])
-            {
-                levelNum = i + 1;
-                return;
-            }
-        }
+        checkLevelNum();
+        
     }
 
     // UI Control
@@ -98,6 +92,18 @@ public class manager : MonoBehaviour
     {
         icon.GetComponent<Image>().color = new Color(1, 1, 1, 1);
 
+    }
+
+    void checkLevelNum()
+    {
+        for (int i = 0; i < levels.Length; i++)
+        {
+            if (!levels[i])
+            {
+                levelNum = i + 1;
+                return;
+            }
+        }
     }
 
     // Save System
@@ -150,6 +156,20 @@ public class manager : MonoBehaviour
         levels[7] = data.level8;
         levels[8] = data.level9;
         levels[9] = data.level10;
+        levels[10] = data.level11;
+        levels[11] = data.level12;
+        levels[12] = data.level13;
+        levels[13] = data.level14;
+        levels[14] = data.level15;
+        levels[15] = data.level16;
+        levels[16] = data.level17;
+        levels[17] = data.level18;
+        levels[18] = data.level19;
+        levels[19] = data.level20;
+        levels[20] = data.level21;
+        levels[21] = data.level22;
+        levels[22] = data.level23;
+        levels[23] = data.level24;
 
         levelNum = data.levelNum;
 
